@@ -1,5 +1,16 @@
 #!/bin/bash
 
+
+echo "========================================================================="
+echo ""
+echo "  Using $PORT PORT"
+echo "  Using $BIND_IP BIND_IP"
+echo "/opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT "
+echo ""
+echo "========================================================================="
+echo ""
+
+
 # Set database config from Heroku DATABASE_URL
 if [ "$DATABASE_URL" != "" ]; then
     echo "Found database configuration in DATABASE_URL=$DATABASE_URL"
@@ -190,3 +201,4 @@ fi
 
 exec /opt/jboss/keycloak/bin/standalone.sh $SYS_PROPS $@ -Djboss.http.port=$PORT 
 exit $?
+
